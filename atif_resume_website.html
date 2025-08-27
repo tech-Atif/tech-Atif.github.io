@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Atif Ansari — STEM • Robotics • AI Educator</title>
+  <meta name="description" content="Portfolio resume of Atif Ansari, STEM, Robotics & AI educator with an Electrical Engineering background from Desh Bhagat University." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- TailwindCSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'ui-sans-serif', 'system-ui'] },
+          colors: {
+            // Robotics / neon vibe
+            primary: {
+              DEFAULT: '#06b6d4', // cyan-500
+              50: '#ecfeff',
+              100: '#cffafe',
+              200: '#a5f3fc',
+              300: '#67e8f9',
+              400: '#22d3ee',
+              500: '#06b6d4',
+              600: '#0891b2',
+              700: '#0e7490',
+              800: '#155e75',
+              900: '#164e63'
+            },
+            accent: '#22c55e', // green-500
+          },
+          boxShadow: {
+            glow: '0 0 20px rgba(6,182,212,0.35)',
+            glowGreen: '0 0 20px rgba(34,197,94,0.35)'
+          },
+          backgroundImage: {
+            grid: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.06) 1px, transparent 0)',
+            circuit: 'url("data:image/svg+xml,%3Csvg width=\'300\' height=\'300\' viewBox=\'0 0 300 300\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' stroke=\'%2306b6d4\' stroke-opacity=\'0.15\' stroke-width=\'1\'%3E%3Cpath d=\'M0 50h300M0 100h300M0 150h300M0 200h300M0 250h300\'/%3E%3Cpath d=\'M50 0v300M100 0v300M150 0v300M200 0v300M250 0v300\'/%3E%3Ccircle cx=\'75\' cy=\'75\' r=\'3\'/%3E%3Ccircle cx=\'225\' cy=\'125\' r=\'3\'/%3E%3Ccircle cx=\'175\' cy=\'225\' r=\'3\'/%3E%3C/g%3E%3C/svg%3E")'
+          },
+          keyframes: {
+            floaty: { '0%,100%': { transform: 'translateY(0px)'}, '50%': { transform: 'translateY(-6px)'} },
+            pulseRing: {
+              '0%': { transform: 'scale(0.8)', opacity: 0.6 },
+              '80%, 100%': { transform: 'scale(2.4)', opacity: 0 }
+            }
+          },
+          animation: {
+            floaty: 'floaty 6s ease-in-out infinite',
+            pulseRing: 'pulseRing 2s cubic-bezier(0, 0, 0.2, 1) infinite'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Smooth scrolling for anchor links */
+    html { scroll-behavior: smooth; }
+  </style>
+  <!-- Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Schema.org for rich preview -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Atif Ansari",
+    "jobTitle": "STEM, Robotics & AI Educator",
+    "alumniOf": {"@type": "CollegeOrUniversity", "name": "Desh Bhagat University"},
+    "address": {"@type": "PostalAddress", "addressCountry": "IN", "addressLocality": "Bengaluru"},
+    "worksFor": {"@type": "Organization", "name": "Metasage Alliance"},
+    "sameAs": [
+      "https://www.linkedin.com/in/your-linkedin/",
+      "https://github.com/your-github"
+    ]
+  }
+  </script>
+</head>
+<body class="bg-slate-950 text-slate-100 selection:bg-primary-400/40">
+
+  <!-- ====== NAVBAR ====== -->
+  <header class="sticky top-0 z-50 backdrop-blur bg-slate-950/70 border-b border-white/5">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#top" class="inline-flex items-center gap-2 text-primary-200 hover:text-white">
+        <span class="font-extrabold tracking-tight text-lg">Atif<span class="text-primary-400">.</span></span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm text-slate-300">
+        <a href="#about" class="hover:text-white">About</a>
+        <a href="#achievements" class="hover:text-white">Achievements</a>
+        <a href="#projects" class="hover:text-white">Projects</a>
+        <a href="#experience" class="hover:text-white">Experience</a>
+        <a href="#skills" class="hover:text-white">Skills</a>
+        <a href="#contact" class="hover:text-white">Contact</a>
+      </nav>
+      <div class="flex items-center gap-3">
+        <a href="#contact" class="hidden sm:inline-flex items-center gap-2 rounded-2xl bg-primary-500/20 hover:bg-primary-500/30 px-4 py-2 text-primary-100 shadow-glow">
+          <i data-lucide="send" class="w-4 h-4"></i>
+          <span>Contact</span>
+        </a>
+        <button id="menuBtn" class="md:hidden inline-flex items-center justify-center rounded-xl p-2 hover:bg-white/5">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </div>
+    <!-- mobile menu -->
+    <div id="mobileMenu" class="md:hidden hidden border-t border-white/5">
+      <nav class="px-4 py-3 grid gap-3 text-slate-300 bg-slate-900/60">
+        <a href="#about" class="hover:text-white">About</a>
+        <a href="#achievements" class="hover:text-white">Achievements</a>
+        <a href="#projects" class="hover:text-white">Projects</a>
+        <a href="#experience" class="hover:text-white">Experience</a>
+        <a href="#skills" class="hover:text-white">Skills</a>
+        <a href="#contact" class="hover:text-white">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ====== HERO ====== -->
+  <section id="top" class="relative overflow-hidden border-b border-white/5">
+    <div class="absolute inset-0 bg-circuit opacity-30"></div>
+    <div class="max-w-6xl mx-auto px-4 py-20 md:py-28 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <div class="relative inline-flex items-center">
+          <span class="absolute inset-0 rounded-full animate-pulseRing"></span>
+          <span class="relative inline-flex items-center gap-2 rounded-full bg-primary-500/15 px-3 py-1 text-xs text-primary-100 ring-1 ring-primary-500/40">STEM • Robotics • AI</span>
+        </div>
+        <h1 class="mt-5 text-4xl md:text-6xl font-extrabold leading-tight">
+          Atif Ansari
+          <span class="block text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-accent">Educator • Mentor • Maker</span>
+        </h1>
+        <p class="mt-5 text-slate-300 max-w-xl">Electrical Engineer turned educator, building future-ready minds through hands-on <span class="text-primary-200">electronics</span>, <span class="text-primary-200">robotics</span> & <span class="text-primary-200">AI</span>. Teaching career started at <b>Desh Bhagat University</b>, now training at <b>Metasage Alliance (Bengaluru)</b> after a year at <b>Techknowskola</b>.</p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <!-- TODO: Replace href with your resume file link -->
+          <a href="#" class="inline-flex items-center gap-2 rounded-2xl bg-white text-slate-900 px-5 py-3 font-semibold hover:shadow-lg">
+            <i data-lucide="download" class="w-5 h-5"></i>
+            Download Resume
+          </a>
+          <a href="#projects" class="inline-flex items-center gap-2 rounded-2xl bg-primary-500/20 px-5 py-3 text-primary-100 ring-1 ring-primary-500/40 hover:bg-primary-500/30">
+            <i data-lucide="cpu" class="w-5 h-5"></i>
+            See Projects
+          </a>
+        </div>
+      </div>
+      <div class="relative">
+        <!-- TODO: Replace placeholder image src with your photo -->
+        <div class="relative w-full aspect-square rounded-3xl bg-gradient-to-br from-slate-800 to-slate-900 p-1 shadow-glow animate-floaty">
+          <div class="w-full h-full rounded-3xl overflow-hidden border border-white/10">
+            <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1400&auto=format&fit=crop" alt="Atif Profile" class="w-full h-full object-cover" />
+          </div>
+        </div>
+        <!-- floating chips -->
+        <div class="absolute -top-3 -right-3 md:-right-6">
+          <span class="inline-flex items-center gap-2 rounded-2xl bg-slate-900/80 px-3 py-2 text-xs ring-1 ring-white/10 shadow-glow"><i data-lucide="bot" class="w-4 h-4"></i> AI in Classrooms</span>
+        </div>
+        <div class="absolute -bottom-3 -left-3 md:-left-6">
+          <span class="inline-flex items-center gap-2 rounded-2xl bg-slate-900/80 px-3 py-2 text-xs ring-1 ring-white/10 shadow-glowGreen"><i data-lucide="zap" class="w-4 h-4"></i> Electronics First</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== ABOUT ====== -->
+  <section id="about" class="py-16 md:py-20 bg-slate-950">
+    <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-3 gap-10">
+      <div class="md:col-span-2">
+        <h2 class="text-2xl md:text-3xl font-bold">About</h2>
+        <p class="mt-4 text-slate-300">I began by tinkering with circuits and microcontrollers at <b>Desh Bhagat University</b> while pursuing <b>Electrical Engineering</b>. There, I took my first steps into teaching—running workshops and mentoring peers in <b>Robotics</b> and <b>AI</b>. Since then, I’ve helped learners build line-followers, obstacle-avoiders, IoT prototypes, and AI mini-projects—always keeping <b>electronics</b> at the core.</p>
+        <p class="mt-4 text-slate-300">After a year of training at <b>Techknowskola</b>, I now serve as a <b>STEM Trainer</b> at <b>Metasage Alliance (Bengaluru)</b>, designing hands-on curricula, teacher training sessions, and showcase projects that spark curiosity and confidence.</p>
+      </div>
+      <div class="bg-slate-900/60 rounded-3xl p-6 ring-1 ring-white/10">
+        <h3 class="font-semibold">Quick Info</h3>
+        <ul class="mt-4 grid gap-2 text-sm text-slate-300">
+          <li class="flex items-center gap-2"><i data-lucide="graduation-cap" class="w-4 h-4 text-primary-300"></i> B.Tech, Electrical Engineering — Desh Bhagat University</li>
+          <li class="flex items-center gap-2"><i data-lucide="map-pin" class="w-4 h-4 text-primary-300"></i> Bengaluru, India</li>
+          <li class="flex items-center gap-2"><i data-lucide="briefcase" class="w-4 h-4 text-primary-300"></i> STEM Trainer @ Metasage Alliance</li>
+          <li class="flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4 text-primary-300"></i> <a class="underline decoration-dotted hover:text-white" href="mailto:youremail@example.com">youremail@example.com</a></li>
+          <li class="flex items-center gap-2"><i data-lucide="linkedin" class="w-4 h-4 text-primary-300"></i> <a class="underline decoration-dotted hover:text-white" href="https://www.linkedin.com/in/your-linkedin/" target="_blank" rel="noreferrer">LinkedIn /your-linkedin</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== ACHIEVEMENTS ====== -->
+  <section id="achievements" class="py-16 md:py-20 bg-slate-950 border-t border-white/5">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold">Achievements</h2>
+      <div class="mt-8 grid md:grid-cols-3 gap-6">
+        <!-- Repeatable Achievement Card -->
+        <article class="rounded-3xl bg-slate-900/60 ring-1 ring-white/10 p-6 hover:shadow-glow transition">
+          <div class="flex items-center justify-between">
+            <h3 class="font-semibold">Launched Robotics Club</h3>
+            <i data-lucide="trophy" class="w-5 h-5 text-accent"></i>
+          </div>
+          <p class="mt-2 text-sm text-slate-300">Started a student robotics club to build weekly electronics-robotics projects; conducted 10+ hands-on sessions.</p>
+        </article>
+        <article class="rounded-3xl bg-slate-900/60 ring-1 ring-white/10 p-6 hover:shadow-glow transition">
+          <div class="flex items-center justify-between">
+            <h3 class="font-semibold">Designed STEM Curriculum</h3>
+            <i data-lucide="book-open-check" class="w-5 h-5 text-accent"></i>
+          </div>
+          <p class="mt-2 text-sm text-slate-300">Created age-appropriate modules covering sensors, Arduino/ESP32, IoT basics, and beginner AI.</p>
+        </article>
+        <article class="rounded-3xl bg-slate-900/60 ring-1 ring-white/10 p-6 hover:shadow-glow transition">
+          <div class="flex items-center justify-between">
+            <h3 class="font-semibold">Mentored Winning Teams</h3>
+            <i data-lucide="medal" class="w-5 h-5 text-accent"></i>
+          </div>
+          <p class="mt-2 text-sm text-slate-300">Guided students to compete and place in school/club showcases with practical robotics builds.</p>
+        </article>
+      </div>
+      <!-- TIP: Duplicate the three <article> blocks above and edit content to add more achievements. -->
+    </div>
+  </section>
+
+  <!-- ====== PROJECTS ====== -->
+  <section id="projects" class="py-16 md:py-20 bg-slate-950">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex items-end justify-between gap-4">
+        <h2 class="text-2xl md:text-3xl font-bold">Projects</h2>
+        <a href="#contact" class="text-sm text-primary-200 hover:text-white">Want the code or workshop? →</a>
+      </div>
+
+      <div class="mt-8 grid md:grid-cols-3 gap-6">
+        <!-- Project Card 1 -->
+        <article class="group rounded-3xl overflow-hidden ring-1 ring-white/10 bg-slate-900/60 hover:shadow-glow transition">
+          <div class="aspect-video overflow-hidden">
+            <!-- TODO: Replace with your project image -->
+            <img src="https://images.unsplash.com/photo-1553406830-ef270d0b303b?q=80&w=1400&auto=format&fit=crop" alt="Line Follower Robot" class="w-full h-full object-cover group-hover:scale-[1.03] transition" />
+          </div>
+          <div class="p-6">
+            <h3 class="font-semibold">Line Follower Robot (Arduino)</h3>
+            <p class="mt-2 text-sm text-slate-300">Built from scratch focusing on sensor calibration, PWM motor control, and robust chassis design.</p>
+            <div class="mt-3 flex flex-wrap gap-2 text-xs">
+              <span class="rounded-full bg-primary-500/15 text-primary-100 px-3 py-1 ring-1 ring-primary-500/30">Arduino</span>
+              <span class="rounded-full bg-primary-500/15 text-primary-100 px-3 py-1 ring-1 ring-primary-500/30">IR Sensors</span>
+              <span class="rounded-full bg-primary-500/15 text-primary-100 px-3 py-1 ring-1 ring-primary-500/30">PID Basics</span>
+            </div>
+          </div>
+        </article>
+        <!-- Project Card 2 -->
+        <article class="group rounded-3xl overflow-hidden ring-1 ring-white/10 bg-slate-900/60 hover:shadow-glow transition">
+          <div class="aspect-video overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1508898578281-774ac4893a54?q=80&w=1400&auto=format&fit=crop" alt="IoT Smart Home" class="w-full h-full object-cover group-hover:scale-[1.03] transition" />
+          </div>
+          <div class="p-6">
+            <h3 class="font-semibold">IoT Smart Home Demo (ESP32)</h3>
+            <p class="mt-2 text-sm text-slate-300">Web-controlled relays, sensor dashboard, and automation rules; used for classroom demonstrations.</p>
+            <div class="mt-3 flex flex-wrap gap-2 text-xs">
+              <span class="rounded-full bg-primary-500/15 text-primary-100 px-3 py-1 ring-1 ring-primary-500/30">ESP32</span>
+              <span class="rounded-full bg-primary-500/15 text-primary-100 px-3 py-1 ring-1 ring-primary-500/30">Blynk/HTTP</span>
+              <span class="rounded-full bg-primary-500/15 text-primary-100 px-3 py-1 ring-1 ring-primary-500/30">Dashboard</span>
+            </div>
+          </div>
+        </article>
+        <!-- Project Card 3 -->
+        <article class="group rounded-3xl overflow-hidden ring-1 ring-white/10 bg-slate-900/60 hover:shadow-glow transition">
+          <div class="aspect-video overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1518314916381-77a37c2a49ae?q=80&w=1400&auto=format&fit=crop" alt="Computer Vision" class="w-full h-full object-cover group-hover:scale-[1.03] transition" />
+          </div>
+          <div class="p-6">
+            <h3 class="font-semibold">Beginner AI Project: Teachable ML</h3>
+            <p class="mt-2 text-sm text-slate-300">Image classification activity for students using browser-based ML; focused on ethics & applications.</p>
+            <div class="mt-3 flex flex-wrap gap-2 text-xs">
+              <span class="rounded-full bg-primary-500/15 text-primary-100 px-3 py-1 ring-1 ring-primary-500/30">ML</span>
+              <span class="rounded-full bg-primary-500/15 text-primary-100 px-3 py-1 ring-1 ring-primary-500/30">Teachable</span>
+              <span class="rounded-full bg-primary-500/15 text-primary-100 px-3 py-1 ring-1 ring-primary-500/30">Ethics</span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- TIP: Duplicate a Project Card to add more projects. Replace the image, title and tags. -->
+    </div>
+  </section>
+
+  <!-- ====== EXPERIENCE ====== -->
+  <section id="experience" class="py-16 md:py-20 bg-slate-950 border-t border-white/5">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold">Experience</h2>
+      <ol class="mt-8 relative border-s border-white/10">
+        <!-- Item -->
+        <li class="ms-6 py-6">
+          <span class="absolute -start-3 flex h-6 w-6 items-center justify-center rounded-full bg-primary-500 text-slate-950 ring-2 ring-primary-300">1</span>
+          <h3 class="font-semibold">STEM Trainer — Metasage Alliance <span class="text-slate-400 font-normal">(Bengaluru) • Present</span></h3>
+          <p class="mt-2 text-slate-300">Design and deliver hands-on robotics/AI modules, mentor students & teachers, and lead showcase builds.</p>
+        </li>
+        <!-- Item -->
+        <li class="ms-6 py-6">
+          <span class="absolute -start-3 flex h-6 w-6 items-center justify-center rounded-full bg-primary-500 text-slate-950 ring-2 ring-primary-300">2</span>
+          <h3 class="font-semibold">STEM, Robotics & AI Trainer — Techknowskola <span class="text-slate-400 font-normal">• 1 year</span></h3>
+          <p class="mt-2 text-slate-300">Built engaging curricula around electronics-first robotics; ran workshops and capstone project days.</p>
+        </li>
+        <!-- Item -->
+        <li class="ms-6 py-6">
+          <span class="absolute -start-3 flex h-6 w-6 items-center justify-center rounded-full bg-primary-500 text-slate-950 ring-2 ring-primary-300">3</span>
+          <h3 class="font-semibold">Robotics/AI Teaching — Desh Bhagat University</h3>
+          <p class="mt-2 text-slate-300">Started my teaching journey here—conducted electronics and robotics sessions, mentoring peers & juniors.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ====== SKILLS ====== -->
+  <section id="skills" class="py-16 md:py-20 bg-slate-950">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold">Skills</h2>
+      <div class="mt-6 flex flex-wrap gap-2">
+        <!-- Electronics -->
+        <span class="px-3 py-1 rounded-full bg-primary-500/15 ring-1 ring-primary-500/30 text-primary-100">Electronics</span>
+        <span class="px-3 py-1 rounded-full bg-primary-500/15 ring-1 ring-primary-500/30 text-primary-100">Arduino</span>
+        <span class="px-3 py-1 rounded-full bg-primary-500/15 ring-1 ring-primary-500/30 text-primary-100">ESP32</span>
+        <span class="px-3 py-1 rounded-full bg-primary-500/15 ring-1 ring-primary-500/30 text-primary-100">Sensors & Actuators</span>
+        <span class="px-3 py-1 rounded-full bg-primary-500/15 ring-1 ring-primary-500/30 text-primary-100">IoT</span>
+        <span class="px-3 py-1 rounded-full bg-primary-500/15 ring-1 ring-primary-500/30 text-primary-100">Robotics</span>
+        <span class="px-3 py-1 rounded-full bg-primary-500/15 ring-1 ring-primary-500/30 text-primary-100">AI for Education</span>
+        <span class="px-3 py-1 rounded-full bg-primary-500/15 ring-1 ring-primary-500/30 text-primary-100">Python (Basics)</span>
+        <span class="px-3 py-1 rounded-full bg-primary-500/15 ring-1 ring-primary-500/30 text-primary-100">Curriculum Design</span>
+        <span class="px-3 py-1 rounded-full bg-primary-500/15 ring-1 ring-primary-500/30 text-primary-100">Teacher Training</span>
+        <span class="px-3 py-1 rounded-full bg-primary-500/15 ring-1 ring-primary-500/30 text-primary-100">Workshop Facilitation</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== EDUCATION ====== -->
+  <section id="education" class="py-16 md:py-20 bg-slate-950 border-t border-white/5">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold">Education & Certifications</h2>
+      <div class="mt-8 grid md:grid-cols-2 gap-6">
+        <div class="rounded-3xl bg-slate-900/60 ring-1 ring-white/10 p-6">
+          <h3 class="font-semibold">B.Tech — Electrical Engineering</h3>
+          <p class="text-slate-300">Desh Bhagat University</p>
+        </div>
+        <div class="rounded-3xl bg-slate-900/60 ring-1 ring-white/10 p-6">
+          <h3 class="font-semibold">Selected Certificates</h3>
+          <ul class="mt-2 text-slate-300 list-disc list-inside text-sm">
+            <li>Arduino Fundamentals / Robotics Workshop</li>
+            <li>ESP32 & IoT Prototyping</li>
+            <li>Intro to Machine Learning for Educators</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== CONTACT ====== -->
+  <section id="contact" class="py-16 md:py-20 bg-slate-950">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold">Contact</h2>
+      <p class="mt-2 text-slate-300">Have a collaboration, workshop, or role in mind? Send a message—I’ll reply soon.</p>
+
+      <div class="mt-8 grid md:grid-cols-2 gap-8">
+        <form id="contactForm" class="bg-slate-900/60 rounded-3xl p-6 ring-1 ring-white/10">
+          <!-- NOTE: To enable submissions without your own backend, replace action with Formspree/Netlify URL -->
+          <!-- Example: action="https://formspree.io/f/yourid" method="POST" -->
+          <div class="grid gap-4">
+            <div>
+              <label class="block text-sm text-slate-300">Name</label>
+              <input name="name" required class="mt-1 w-full rounded-xl bg-slate-800/70 px-4 py-3 ring-1 ring-white/10 focus:ring-primary-400 outline-none" />
+            </div>
+            <div>
+              <label class="block text-sm text-slate-300">Email</label>
+              <input type="email" name="email" required class="mt-1 w-full rounded-xl bg-slate-800/70 px-4 py-3 ring-1 ring-white/10 focus:ring-primary-400 outline-none" />
+            </div>
+            <div>
+              <label class="block text-sm text-slate-300">Message</label>
+              <textarea name="message" rows="4" required class="mt-1 w-full rounded-xl bg-slate-800/70 px-4 py-3 ring-1 ring-white/10 focus:ring-primary-400 outline-none"></textarea>
+            </div>
+            <div class="flex items-center gap-3">
+              <button type="submit" class="inline-flex items-center gap-2 rounded-2xl bg-primary-500 text-slate-950 px-5 py-3 font-semibold hover:shadow-glow">
+                <i data-lucide="send" class="w-5 h-5"></i> Send Message
+              </button>
+              <!-- Fallback mailto link (opens user's email client) -->
+              <a href="mailto:youremail@example.com?subject=Portfolio%20contact" class="text-sm underline decoration-dotted text-slate-300 hover:text-white">or email directly</a>
+            </div>
+            <p id="formStatus" class="text-sm text-slate-400"></p>
+          </div>
+        </form>
+
+        <div class="rounded-3xl p-6 ring-1 ring-white/10 bg-slate-900/60">
+          <h3 class="font-semibold">Find me online</h3>
+          <div class="mt-4 grid gap-3 text-slate-300">
+            <a class="flex items-center gap-3 hover:text-white" href="https://www.linkedin.com/in/your-linkedin/" target="_blank" rel="noreferrer">
+              <i data-lucide="linkedin" class="w-5 h-5"></i> LinkedIn
+            </a>
+            <a class="flex items-center gap-3 hover:text-white" href="https://github.com/your-github" target="_blank" rel="noreferrer">
+              <i data-lucide="github" class="w-5 h-5"></i> GitHub
+            </a>
+            <a class="flex items-center gap-3 hover:text-white" href="mailto:youremail@example.com">
+              <i data-lucide="mail" class="w-5 h-5"></i> youremail@example.com
+            </a>
+          </div>
+          <div class="mt-6">
+            <h4 class="font-semibold text-sm">Downloadable</h4>
+            <p class="mt-1 text-sm text-slate-400">Provide a link to your PDF resume or Google Drive file above.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="border-t border-white/5">
+    <div class="max-w-6xl mx-auto px-4 py-8 flex flex-col md:flex-row items-center justify-between gap-4 text-slate-400 text-sm">
+      <p>© <span id="year"></span> Atif Ansari. Built with ❤️ for Robotics & STEM.</p>
+      <div class="flex items-center gap-4">
+        <a href="#top" class="hover:text-white">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // mobile menu toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (menuBtn) {
+      menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    }
+    // lucide icons
+    if (window.lucide) lucide.createIcons();
+    // copyright year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Lightweight client-side form handler (for demo). Replace with Formspree/Netlify for real submissions.
+    const form = document.getElementById('contactForm');
+    const status = document.getElementById('formStatus');
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        status.textContent = 'Thanks! This demo form is configured for preview. Replace the form action with your Formspree/Netlify endpoint to receive messages.';
+      });
+    }
+  </script>
+</body>
+</html>

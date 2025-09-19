@@ -467,34 +467,44 @@
     }
   </script>
   <script>
-  const imageCount = 38; // total images
-  let currentIndex = 0;
-
+  // ====== SLIDESHOW ======
   const slideshow = document.getElementById("slideshow");
 
-  // Create img elements for all 38 images
-  for (let i = 1; i <= imageCount; i++) {
+  // ✅ List all images that exist in your folder
+  const images = [
+    "1.jpg",
+    "2.jpg",
+    "3.jpg",
+    "4.jpg",
+    // add/remove filenames as needed
+    // "5.jpg", "6.jpg", ...
+  ];
+
+  // Create img elements dynamically
+  images.forEach((file, index) => {
     const img = document.createElement("img");
-    img.src = `images/${i}.jpg`;  // files should be 1.jpg, 2.jpg ... 38.jpg
+    img.src = `images/${file}`;
     img.className = "absolute top-0 left-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000 ease-in-out";
-    if (i === 1) img.classList.add("opacity-100"); // first image visible
+    if (index === 0) img.classList.add("opacity-100"); // first image visible
     slideshow.appendChild(img);
-  }
+  });
 
   const slides = slideshow.getElementsByTagName("img");
+  let currentIndex = 0;
 
   function showNextImage() {
     slides[currentIndex].classList.remove("opacity-100");
     slides[currentIndex].classList.add("opacity-0");
 
-    currentIndex = (currentIndex + 1) % imageCount;
+    currentIndex = (currentIndex + 1) % slides.length;
 
     slides[currentIndex].classList.remove("opacity-0");
     slides[currentIndex].classList.add("opacity-100");
   }
 
-  setInterval(showNextImage, 4000); // change every 4s
+  setInterval(showNextImage, 4000); // change image every 4s
 </script>
+
 
 </body>
 </html>

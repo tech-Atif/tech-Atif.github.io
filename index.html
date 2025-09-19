@@ -467,39 +467,39 @@
     }
   </script>
   <script>
-  const slideshow = document.getElementById("slideshow");
+const slideshow = document.getElementById("slideshow");
 
-  // Fetch the image manifest JSON
-  fetch('images/images.json')
-    .then(response => response.json())
-    .then(images => {
-      if(!images || images.length === 0) return;
+fetch('images/images.json')
+  .then(res => res.json())
+  .then(files => {
+    if (!files || files.length === 0) return;
 
-      // Create img elements dynamically
-      images.forEach((file, index) => {
-        const img = document.createElement("img");
-        img.src = `images/${file}`;
-        img.className = "absolute top-0 left-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000 ease-in-out";
-        if(index === 0) img.classList.add("opacity-100"); // first image visible
-        slideshow.appendChild(img);
-      });
+    let currentIndex = 0;
 
-      const slides = slideshow.getElementsByTagName("img");
-      let currentIndex = 0;
+    // Create img elements
+    files.forEach((file, i) => {
+      const img = document.createElement("img");
+      img.src = `images/${file}`;
+      img.className = "absolute top-0 left-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000 ease-in-out";
+      if (i === 0) img.classList.add("opacity-100"); // show first image
+      slideshow.appendChild(img);
+    });
 
-      function showNextImage() {
-        slides[currentIndex].classList.remove("opacity-100");
-        slides[currentIndex].classList.add("opacity-0");
+    const slides = slideshow.getElementsByTagName("img");
 
-        currentIndex = (currentIndex + 1) % slides.length;
+    function showNextImage() {
+      slides[currentIndex].classList.remove("opacity-100");
+      slides[currentIndex].classList.add("opacity-0");
 
-        slides[currentIndex].classList.remove("opacity-0");
-        slides[currentIndex].classList.add("opacity-100");
-      }
+      currentIndex = (currentIndex + 1) % slides.length;
 
-      setInterval(showNextImage, 4000); // 4s per slide
-    })
-    .catch(err => console.error("Failed to load images.json:", err));
+      slides[currentIndex].classList.remove("opacity-0");
+      slides[currentIndex].classList.add("opacity-100");
+    }
+
+    setInterval(showNextImage, 4000);
+  })
+  .catch(err => console.error("Error loading images.json:", err));
 </script>
 </body>
 </html>

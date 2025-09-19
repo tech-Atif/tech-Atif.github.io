@@ -290,6 +290,30 @@
       <!-- TIP: Duplicate a Project Card to add more projects. Replace the image, title and tags. -->
     </div>
   </section>
+  <!-- ====== VIDEO DEMO (Google Drive) ====== -->
+<section id="video" class="py-16 md:py-20 bg-slate-950 border-t border-white/5 relative overflow-hidden">
+  <div class="absolute inset-0 bg-circuit opacity-10 pointer-events-none"></div>
+
+  <div class="max-w-6xl mx-auto px-4 text-center relative z-10">
+    <h2 class="text-2xl md:text-3xl font-bold mb-8">Watch My Project Demo</h2>
+
+    <div class="relative w-full max-w-3xl mx-auto rounded-3xl overflow-hidden shadow-glow animate-floaty ring-1 ring-white/10">
+      <iframe 
+        src="https://drive.google.com/file/d/FILE_ID/preview" 
+        width="100%" 
+        height="480" 
+        allow="autoplay" 
+        class="rounded-3xl"
+      ></iframe>
+
+      <div class="absolute -top-3 -right-3">
+        <span class="inline-flex items-center gap-2 rounded-2xl bg-slate-900/80 px-3 py-2 text-xs ring-1 ring-white/10 shadow-glowGreen">
+          <i data-lucide="video" class="w-4 h-4"></i> Demo Video
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
 
   <!-- ====== EXPERIENCE ====== -->
   <section id="experience" class="py-16 md:py-20 bg-slate-950 border-t border-white/5">
@@ -501,5 +525,13 @@ fetch('images/images.json')
   })
   .catch(err => console.error("Error loading images.json:", err));
 </script>
+  <iframe 
+  src="https://drive.google.com/file/d/1PXgqLz7CPFS0KqlJOoVO-62T5PI1CIBN/preview" 
+  width="640" 
+  height="360" 
+  allow="autoplay" 
+  allowfullscreen
+  class="rounded-3xl shadow-glow"
+></iframe>
 </body>
 </html>

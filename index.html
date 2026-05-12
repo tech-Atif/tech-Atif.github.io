@@ -286,7 +286,7 @@
       <h2 class="text-2xl md:text-3xl font-bold">Achievements</h2>
       <div class="mt-8 grid md:grid-cols-3 gap-6">
         <!-- Repeatable Achievement Card -->
-        <article class="rounded-3xl bg-slate-900/60 ring-1 ring-white/10 p-6 hover:shadow-glow transition">
+        <article onclick="openModal('https://drive.google.com/file/d/1PXgqLz7CPFS0KqlJOoVO-62T5PI1CIBN/preview')" class="group cursor-pointer rounded-3xl overflow-hidden ring-1 ring-white/10 bg-slate-900/60 hover:shadow-glow transition">
           <div class="flex items-center justify-between">
             <h3 class="font-semibold">Robotics-AI hands on sessions</h3>
             <i data-lucide="trophy" class="w-5 h-5 text-accent"></i>
@@ -549,6 +549,35 @@
     </div>
   </footer>
 
+  <!-- PROJECT VIDEO MODAL -->
+<div id="videoModal" class="fixed inset-0 bg-black/80 backdrop-blur hidden items-center justify-center z-[9999] p-4">
+
+  <div class="relative w-full max-w-4xl">
+
+    <!-- Close Button -->
+    <button 
+      onclick="closeModal()"
+      class="absolute -top-12 right-0 text-white text-3xl hover:text-primary-300"
+    >
+      ✕
+    </button>
+
+    <!-- Video -->
+    <div class="relative w-full aspect-video rounded-3xl overflow-hidden shadow-2xl ring-1 ring-white/10">
+
+      <iframe
+        id="modalVideo"
+        src=""
+        class="w-full h-full"
+        allow="autoplay"
+        allowfullscreen>
+      </iframe>
+
+    </div>
+
+  </div>
+
+</div>
   <script>
     // mobile menu toggle
     const menuBtn = document.getElementById('menuBtn');
@@ -666,6 +695,31 @@ fetch('images/images.json')
     }, 800);
 
   });
+</script>
+  <script>
+
+  const videoModal = document.getElementById("videoModal");
+  const modalVideo = document.getElementById("modalVideo");
+
+  function openModal(videoLink) {
+    modalVideo.src = videoLink;
+    videoModal.classList.remove("hidden");
+    videoModal.classList.add("flex");
+  }
+
+  function closeModal() {
+    modalVideo.src = "";
+    videoModal.classList.remove("flex");
+    videoModal.classList.add("hidden");
+  }
+
+  // close when clicking outside
+  videoModal.addEventListener("click", (e) => {
+    if(e.target === videoModal){
+      closeModal();
+    }
+  });
+
 </script>
 </body>
 </html>

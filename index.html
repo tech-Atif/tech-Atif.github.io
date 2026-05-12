@@ -157,7 +157,11 @@
             Educator • Mentor • Maker
           </span>
         </h1>
-
+        <!-- TYPING EFFECT -->
+<div class="mt-4 h-8">
+  <span id="typingText" class="text-xl md:text-2xl font-semibold text-primary-200"></span>
+  <span class="animate-pulse text-primary-400">|</span>
+</div>
         <!-- DESCRIPTION -->
         <p class="mt-6 text-lg text-slate-200 max-w-xl leading-relaxed">
           Electrical Engineer turned educator, building future-ready minds through hands-on 
@@ -577,6 +581,49 @@ fetch('images/images.json')
     setInterval(showNextImage, 4000);
   })
   .catch(err => console.error("Error loading images.json:", err));
+</script>
+  <script>
+  const roles = [
+    "STEM Educator",
+    "Robotics Mentor",
+    "AI Trainer",
+    "Electronics Engineer",
+    "Project Manager",
+    "Innovation Creator"
+  ];
+
+  let roleIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+
+  const typingElement = document.getElementById("typingText");
+
+  function typeEffect() {
+
+    const currentRole = roles[roleIndex];
+
+    if (isDeleting) {
+      typingElement.textContent = currentRole.substring(0, charIndex--);
+    } else {
+      typingElement.textContent = currentRole.substring(0, charIndex++);
+    }
+
+    let speed = isDeleting ? 50 : 100;
+
+    if (!isDeleting && charIndex === currentRole.length + 1) {
+      speed = 1500;
+      isDeleting = true;
+    }
+
+    if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      roleIndex = (roleIndex + 1) % roles.length;
+    }
+
+    setTimeout(typeEffect, speed);
+  }
+
+  typeEffect();
 </script>
 </body>
 </html>

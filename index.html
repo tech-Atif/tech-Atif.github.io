@@ -472,7 +472,12 @@
       <p class="mt-2 text-slate-300">Have a collaboration, workshop, or role in mind? Send a message—I’ll reply soon.</p>
 
       <div class="mt-8 grid md:grid-cols-2 gap-8">
-        <form id="contactForm" class="bg-slate-900/60 rounded-3xl p-6 ring-1 ring-white/10">
+        <form 
+  id="contactForm"
+  action="https://formspree.io/f/https://formspree.io/f/mgodqkqz"
+  method="POST"
+  class="bg-slate-900/60 rounded-3xl p-6 ring-1 ring-white/10"
+>
           <!-- NOTE: To enable submissions without your own backend, replace action with Formspree/Netlify URL -->
           <!-- Example: action="https://formspree.io/f/yourid" method="POST" -->
           <div class="grid gap-4">
@@ -589,16 +594,9 @@
     if (window.lucide) lucide.createIcons();
     // copyright year
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Lightweight client-side form handler (for demo). Replace with Formspree/Netlify for real submissions.
-    const form = document.getElementById('contactForm');
-    const status = document.getElementById('formStatus');
-    if (form) {
-      form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        status.textContent = 'Thanks! This demo form is configured for preview. Replace the form action with your Formspree/Netlify endpoint to receive messages.';
-      });
-    }
+    <p class="text-sm text-slate-400 mt-3">
+  Your message will be sent directly to my inbox.
+</p>
   </script>
   <script>
 const slideshow = document.getElementById("slideshow");

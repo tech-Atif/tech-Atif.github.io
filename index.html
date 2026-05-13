@@ -504,9 +504,17 @@
               <textarea name="message" rows="4" required class="mt-1 w-full rounded-xl bg-slate-800/70 px-4 py-3 ring-1 ring-white/10 focus:ring-primary-400 outline-none"></textarea>
             </div>
             <div class="flex items-center gap-3">
-              <button type="submit" class="inline-flex items-center justify-center gap-2 rounded-2xl bg-primary-500 text-slate-950 px-5 py-3 font-semibold hover:shadow-glow">
-                <i data-lucide="send" class="w-5 h-5"></i> Send Message
-              </button>
+              <button type="submit"
+  class="flex items-center justify-center rounded-2xl bg-primary-500 text-slate-950 px-6 py-3 font-semibold hover:shadow-glow w-[230px] relative">
+
+  <i data-lucide="send"
+     class="w-5 h-5 absolute left-6"></i>
+
+  <span class="mx-auto">
+    Send Message
+  </span>
+
+</button>
               <p id="formStatus" class="text-sm text-green-400 mt-3"></p>
               <!-- Fallback mailto link (opens user's email client) -->
               <a href="mailto:youremail@example.com?subject=Portfolio%20contact" class="text-sm underline decoration-dotted text-slate-300 hover:text-white">or email directly</a>

@@ -915,5 +915,40 @@ form.addEventListener("submit", async function(e) {
 });
 
 </script>
+  <script>
+
+const typingPopups = document.querySelectorAll(".typingPopup");
+
+typingPopups.forEach((popup) => {
+
+  const parentCard = popup.closest(".group");
+
+  parentCard.addEventListener("mouseenter", () => {
+
+    const text = popup.getAttribute("data-text");
+
+    popup.textContent = "";
+
+    let i = 0;
+
+    clearInterval(popup.typingInterval);
+
+    popup.typingInterval = setInterval(() => {
+
+      popup.textContent += text.charAt(i);
+
+      i++;
+
+      if(i >= text.length){
+        clearInterval(popup.typingInterval);
+      }
+
+    }, 18);
+
+  });
+
+});
+
+</script>
 </body>
 </html>

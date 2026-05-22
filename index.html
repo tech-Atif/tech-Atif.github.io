@@ -1001,9 +1001,6 @@ class="hidden sm:inline-flex items-center justify-center rounded-2xl bg-primary-
     if (window.lucide) lucide.createIcons();
     // copyright year
     document.getElementById('year').textContent = new Date().getFullYear();
-    <p class="text-sm text-slate-400 mt-3">
-  Your message will be sent directly to my inbox.
-</p>
   </script>
   <script>
 const slideshow = document.getElementById("slideshow");
@@ -1167,6 +1164,18 @@ typingPopups.forEach((popup) => {
   });
 
 });
+
+</script>
+  <script>
+
+  // Always open website from top on refresh
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+
+  window.onload = function () {
+    window.scrollTo(0, 0);
+  };
 
 </script>
 </body>

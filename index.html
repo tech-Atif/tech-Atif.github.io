@@ -84,6 +84,24 @@
     opacity: 0;
   }
 }
+     .pianoKey{
+  width:90px;
+  height:280px;
+  background:white;
+  border:1px solid #ddd;
+  margin-right:2px;
+  border-radius:0 0 12px 12px;
+
+  cursor:pointer;
+
+  transition:all .15s ease;
+}
+
+.pianoKey:hover{
+  transform:translateY(6px);
+  background:#cffafe;
+  box-shadow:0 0 30px rgba(6,182,212,.7);
+}
   </style>
   <!-- Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
@@ -851,25 +869,75 @@ class="hidden sm:inline-flex items-center gap-2 rounded-2xl bg-primary-500/20 ho
   </section>
 
   <!-- ====== SKILLS ====== -->
-  <section id="skills" class="py-16 md:py-20 bg-slate-950">
-    <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-2xl md:text-3xl font-bold">Skills</h2>
-      <div class="mt-6 flex flex-wrap gap-2">
-        <!-- Electronics -->
-        <span class="px-3 py-1 rounded-full bg-primary-500/15 ring-1 ring-primary-500/30 text-primary-100">Electronics</span>
-        <span class="px-3 py-1 rounded-full bg-primary-500/15 ring-1 ring-primary-500/30 text-primary-100">Arduino</span>
-        <span class="px-3 py-1 rounded-full bg-primary-500/15 ring-1 ring-primary-500/30 text-primary-100">ESP32</span>
-        <span class="px-3 py-1 rounded-full bg-primary-500/15 ring-1 ring-primary-500/30 text-primary-100">Sensors & Actuators</span>
-        <span class="px-3 py-1 rounded-full bg-primary-500/15 ring-1 ring-primary-500/30 text-primary-100">IoT</span>
-        <span class="px-3 py-1 rounded-full bg-primary-500/15 ring-1 ring-primary-500/30 text-primary-100">Robotics</span>
-        <span class="px-3 py-1 rounded-full bg-primary-500/15 ring-1 ring-primary-500/30 text-primary-100">AI for Education</span>
-        <span class="px-3 py-1 rounded-full bg-primary-500/15 ring-1 ring-primary-500/30 text-primary-100">Python (Basics)</span>
-        <span class="px-3 py-1 rounded-full bg-primary-500/15 ring-1 ring-primary-500/30 text-primary-100">Curriculum Design</span>
-        <span class="px-3 py-1 rounded-full bg-primary-500/15 ring-1 ring-primary-500/30 text-primary-100">Teacher Training</span>
-        <span class="px-3 py-1 rounded-full bg-primary-500/15 ring-1 ring-primary-500/30 text-primary-100">Workshop Facilitation</span>
+ <section id="skills" class="py-20 bg-slate-950">
+  <div class="max-w-6xl mx-auto px-4">
+
+    <h2 class="text-3xl font-bold mb-10">
+      Interactive Skills Piano
+    </h2>
+
+    <div class="relative">
+
+      <!-- Skill Popup -->
+      <div id="skillPopup"
+           class="absolute left-1/2 -translate-x-1/2 -top-32
+                  opacity-0 scale-75 transition-all duration-300
+                  bg-slate-900/95 backdrop-blur-xl
+                  rounded-3xl px-8 py-6
+                  ring-1 ring-primary-500/30
+                  shadow-glow">
+
+        <h3 id="skillTitle"
+            class="text-xl font-bold text-primary-300">
+        </h3>
+
+        <p id="skillDesc"
+           class="text-sm text-slate-300 mt-2">
+        </p>
+
       </div>
+
+      <!-- Piano -->
+      <div class="flex justify-center">
+
+        <div id="piano" class="flex">
+
+          <div class="pianoKey" data-note="C4"
+               data-title="Electronics"
+               data-desc="Circuit Design & Prototyping"></div>
+
+          <div class="pianoKey" data-note="D4"
+               data-title="Arduino"
+               data-desc="Sensors, Motors & Automation"></div>
+
+          <div class="pianoKey" data-note="E4"
+               data-title="Project Manager"
+               data-desc="Team Leadership & Execution"></div>
+
+          <div class="pianoKey" data-note="F4"
+               data-title="Robotics"
+               data-desc="Autonomous Systems"></div>
+
+          <div class="pianoKey" data-note="G4"
+               data-title="ESP32"
+               data-desc="IoT & Wireless Systems"></div>
+
+          <div class="pianoKey" data-note="A4"
+               data-title="AI Trainer"
+               data-desc="Teaching AI Concepts"></div>
+
+          <div class="pianoKey" data-note="B4"
+               data-title="STEM Educator"
+               data-desc="Hands-on Learning"></div>
+
+        </div>
+
+      </div>
+
     </div>
-  </section>
+
+  </div>
+</section>
 
   <!-- ====== EDUCATION ====== -->
   <section id="education" class="py-16 md:py-20 bg-slate-950 border-t border-white/5">
@@ -1175,6 +1243,51 @@ typingPopups.forEach((popup) => {
   window.onload = function () {
     window.scrollTo(0, 0);
   };
+
+</script>
+  <script>
+
+const popup = document.getElementById("skillPopup");
+const title = document.getElementById("skillTitle");
+const desc = document.getElementById("skillDesc");
+
+const notes = {
+  C4:new Audio("audio/C4.mp3"),
+  D4:new Audio("audio/D4.mp3"),
+  E4:new Audio("audio/E4.mp3"),
+  F4:new Audio("audio/F4.mp3"),
+  G4:new Audio("audio/G4.mp3"),
+  A4:new Audio("audio/A4.mp3"),
+  B4:new Audio("audio/B4.mp3")
+};
+
+document.querySelectorAll(".pianoKey")
+.forEach(key=>{
+
+  key.addEventListener("mouseenter",()=>{
+
+    const note = key.dataset.note;
+
+    notes[note].currentTime = 0;
+    notes[note].play();
+
+    title.textContent = key.dataset.title;
+    desc.textContent = key.dataset.desc;
+
+    popup.classList.remove("opacity-0","scale-75");
+    popup.classList.add("opacity-100","scale-100");
+
+  });
+
+});
+
+document.getElementById("piano")
+.addEventListener("mouseleave",()=>{
+
+  popup.classList.remove("opacity-100","scale-100");
+  popup.classList.add("opacity-0","scale-75");
+
+});
 
 </script>
 </body>

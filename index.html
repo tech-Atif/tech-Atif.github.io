@@ -899,12 +899,13 @@ class="hidden sm:inline-flex items-center gap-2 rounded-2xl bg-primary-500/20 ho
 
       <!-- Skill Popup -->
       <div id="skillPopup"
-           class="absolute left-1/2 -translate-x-1/2 -top-32
-                  opacity-0 scale-75 transition-all duration-300
-                  bg-slate-900/95 backdrop-blur-xl
-                  rounded-3xl px-8 py-6
-                  ring-1 ring-primary-500/30
-                  shadow-glow">
+     class="absolute left-1/2 -translate-x-1/2 -top-40
+            w-[500px]
+            opacity-0 scale-75 transition-all duration-300
+            bg-slate-900/95 backdrop-blur-xl
+            rounded-3xl px-8 py-6
+            ring-1 ring-primary-500/30
+            shadow-glow">
 
         <h3 id="skillTitle"
             class="text-xl font-bold text-primary-300">
@@ -913,6 +914,9 @@ class="hidden sm:inline-flex items-center gap-2 rounded-2xl bg-primary-500/20 ho
         <p id="skillDesc"
            class="text-sm text-slate-300 mt-2">
         </p>
+        <div id="skillList"
+     class="mt-4 flex flex-wrap gap-2">
+</div>
 
       </div>
 
@@ -921,33 +925,54 @@ class="hidden sm:inline-flex items-center gap-2 rounded-2xl bg-primary-500/20 ho
 
         <div id="piano" class="flex">
 
-          <div class="pianoKey" data-note="C4"
-               data-title="Electronics"
-               data-desc="Circuit Design & Prototyping"></div>
+          <div class="pianoKey"
+     data-note="C4"
+     data-title="Electronics"
+     data-desc="Circuit Design & Prototyping"
+     data-skills="Circuit Design, PCB Design, Soldering, Troubleshooting, Sensors, Actuators, Power Electronics, Embedded Systems">
+</div>
 
-          <div class="pianoKey" data-note="D4"
-               data-title="Arduino"
-               data-desc="Sensors, Motors & Automation"></div>
+          <div class="pianoKey"
+     data-note="D4"
+     data-title="Research & Development"
+     data-desc="Innovation, Prototyping & Product Development"
+     data-skills="Product Development, Rapid Prototyping, Problem Solving, Innovation Design, Feasibility Analysis, Testing & Validation, Manufacturing, Technical Documentation">
+</div>
 
-          <div class="pianoKey" data-note="E4"
-               data-title="Project Manager"
-               data-desc="Team Leadership & Execution"></div>
+          <div class="pianoKey"
+     data-note="E4"
+     data-title="Project Management"
+     data-desc="Leading teams and delivering projects."
+     data-skills="Team Leadership, Curriculum Design, Project Planning, Resource Management, Documentation, Client Communication, Event Coordination, Execution">
+</div>
 
-          <div class="pianoKey" data-note="F4"
-               data-title="Robotics"
-               data-desc="Autonomous Systems"></div>
+          <div class="pianoKey"
+     data-note="F4"
+     data-title="Robotics"
+     data-desc="Autonomous Systems & Control"
+     data-skills="Line Followers, Obstacle Avoiders, Fire Fighting Robots, Sensor Fusion, Motor Control, PID Algorithms, Chassis Design, Autonomous Navigation">
+</div>
 
-          <div class="pianoKey" data-note="G4"
-               data-title="ESP32"
-               data-desc="IoT & Wireless Systems"></div>
+          <div class="pianoKey"
+     data-note="G4"
+     data-title="ESP32 & IoT"
+     data-desc="Connected Devices & Automation"
+     data-skills="ESP32, Wi-Fi Communication, Blynk IoT, Web Dashboards, MQTT, Home Automation, Cloud Integration, Remote Monitoring">
+</div>
 
-          <div class="pianoKey" data-note="A4"
-               data-title="AI Trainer"
-               data-desc="Teaching AI Concepts"></div>
+          <div class="pianoKey"
+     data-note="G4"
+     data-title="ESP32 & IoT"
+     data-desc="Connected Devices & Automation"
+     data-skills="ESP32, Wi-Fi Communication, Blynk IoT, Web Dashboards, MQTT, Home Automation, Cloud Integration, Remote Monitoring">
+</div>
 
-          <div class="pianoKey" data-note="B4"
-               data-title="STEM Educator"
-               data-desc="Hands-on Learning"></div>
+          <div class="pianoKey"
+     data-note="A4"
+     data-title="AI Trainer"
+     data-desc="Teaching AI Through Projects"
+     data-skills="Prompt Engineering, Generative AI, Machine Learning Basics, AI Ethics, ChatGPT, AI Workshops, AI Curriculum, Classroom AI">
+</div>
 
         </div>
 
@@ -1265,10 +1290,11 @@ typingPopups.forEach((popup) => {
 
 </script>
 <script>
-  const popup = document.getElementById("skillPopup");
+const popup = document.getElementById("skillPopup");
 const title = document.getElementById("skillTitle");
 const desc = document.getElementById("skillDesc");
-
+const skillList = document.getElementById("skillList");
+  
 const notes = {
   C4:new Audio("audio/C4.mp3"),
   D4:new Audio("audio/D4.mp3"),
@@ -1293,13 +1319,28 @@ document.querySelectorAll(".pianoKey").forEach(key=>{
     // Play sound
     const note = key.dataset.note;
 
-    notes[note].pause();
     notes[note].currentTime = 0;
     notes[note].play();
 
     // Update popup
     title.textContent = key.dataset.title;
     desc.textContent = key.dataset.desc;
+    skillList.innerHTML = "";
+
+const skills = key.dataset.skills.split(",");
+
+skills.forEach(skill => {
+
+  const tag = document.createElement("span");
+
+  tag.className =
+    "px-3 py-1 rounded-full bg-primary-500/15 ring-1 ring-primary-500/30 text-primary-100 text-xs";
+
+  tag.textContent = skill.trim();
+
+  skillList.appendChild(tag);
+
+});
 
     popup.classList.remove("opacity-0","scale-75");
     popup.classList.add("opacity-100","scale-100");

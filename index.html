@@ -87,7 +87,7 @@
      .pianoKey{
   width:90px;
   height:280px;
-  background:white;
+  background:linear-gradient(to bottom,#ffffff,#dbeafe);
   border:1px solid #ddd;
   margin-right:2px;
   border-radius:0 0 12px 12px;
@@ -101,6 +101,18 @@
   transform:translateY(6px);
   background:#cffafe;
   box-shadow:0 0 30px rgba(6,182,212,.7);
+}
+     .pianoKey.active{
+  background:#06b6d4;
+  box-shadow:0 0 40px rgba(6,182,212,.8);
+}
+
+#piano{
+  gap:2px;
+}
+
+#skillPopup{
+  min-width:320px;
 }
   </style>
   <!-- Icons -->
@@ -1252,9 +1264,8 @@ typingPopups.forEach((popup) => {
   };
 
 </script>
-  <script>
-
-const popup = document.getElementById("skillPopup");
+<script>
+  const popup = document.getElementById("skillPopup");
 const title = document.getElementById("skillTitle");
 const desc = document.getElementById("skillDesc");
 
@@ -1268,16 +1279,25 @@ const notes = {
   B4:new Audio("audio/B4.mp3")
 };
 
-document.querySelectorAll(".pianoKey")
-.forEach(key=>{
+document.querySelectorAll(".pianoKey").forEach(key=>{
 
   key.addEventListener("mouseenter",()=>{
 
+    // Remove active effect from all keys
+    document.querySelectorAll(".pianoKey")
+      .forEach(k=>k.classList.remove("active"));
+
+    // Highlight current key
+    key.classList.add("active");
+
+    // Play sound
     const note = key.dataset.note;
 
+    notes[note].pause();
     notes[note].currentTime = 0;
     notes[note].play();
 
+    // Update popup
     title.textContent = key.dataset.title;
     desc.textContent = key.dataset.desc;
 
@@ -1294,8 +1314,10 @@ document.getElementById("piano")
   popup.classList.remove("opacity-100","scale-100");
   popup.classList.add("opacity-0","scale-75");
 
-});
+  document.querySelectorAll(".pianoKey")
+    .forEach(k=>k.classList.remove("active"));
 
+});
 </script>
 </body>
 </html>
